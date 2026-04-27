@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+  }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    @apply text-slate-800 bg-slate-50;
+  }
+  html.dark body {
+    background-color: rgb(2 6 23);
+    color: rgb(248 250 252);
+  }
+  ::selection {
+    @apply bg-emerald-200 text-emerald-900;
+  }
+}
+
+@layer components {
+  .code-block {
+    font-family: 'JetBrains Mono', monospace;
+    @apply text-sm leading-relaxed;
+  }
+  .sidebar-link {
+    @apply block px-3 py-1.5 rounded-lg text-sm transition-all duration-200;
+  }
+  .sidebar-link:hover {
+    @apply bg-emerald-50 text-emerald-700;
+  }
+  .sidebar-link.active {
+    @apply bg-emerald-100 text-emerald-700 font-semibold;
+  }
+  .topic-card {
+    @apply bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md transition-all duration-300;
+  }
+  .diagram-box {
+    @apply bg-slate-900 text-emerald-400 rounded-xl p-5 font-mono text-sm leading-relaxed overflow-x-auto;
+  }
+  .checklist-item {
+    @apply flex items-start gap-2 py-1;
+  }
+  .checklist-item::before {
+    content: '';
+    @apply w-5 h-5 rounded border-2 border-emerald-400 mt-0.5 flex-shrink-0;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2310b981' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'%3E%3C/polyline%3E%3C/svg%3E");
+    background-size: 12px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .error-box {
+    @apply bg-red-50 border-l-4 border-red-400 rounded-r-lg p-4;
+  }
+  .tip-box {
+    @apply bg-amber-50 border-l-4 border-amber-400 rounded-r-lg p-4;
+  }
+  .info-box {
+    @apply bg-sky-50 border-l-4 border-sky-400 rounded-r-lg p-4;
+  }
+  .quiz-option {
+    @apply w-full text-left px-4 py-3 rounded-xl border-2 border-slate-200 hover:border-emerald-300 hover:bg-emerald-50 transition-all duration-200 cursor-pointer;
+  }
+  .quiz-option.selected {
+    @apply border-emerald-500 bg-emerald-50;
+  }
+  .quiz-option.correct {
+    @apply border-emerald-500 bg-emerald-100 text-emerald-800;
+  }
+  .quiz-option.incorrect {
+    @apply border-red-400 bg-red-50 text-red-700;
+  }
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { @apply bg-slate-300 rounded-full; }
+::-webkit-scrollbar-thumb:hover { @apply bg-slate-400; }
+
+/* ── Dark mode overrides ── */
+html.dark .bg-white { background-color: rgb(15 23 42) !important; }
+html.dark .bg-white\/80 { background-color: rgb(15 23 42 / 0.9) !important; }
+html.dark .bg-white\/90 { background-color: rgb(15 23 42 / 0.9) !important; }
+html.dark .bg-white\/10 { background-color: rgb(255 255 255 / 0.1) !important; }
+html.dark .bg-slate-50 { background-color: rgb(2 6 23) !important; }
+html.dark .bg-slate-100 { background-color: rgb(15 23 42) !important; }
+html.dark .text-slate-900 { color: rgb(248 250 252) !important; }
+html.dark .text-slate-800 { color: rgb(241 245 249) !important; }
+html.dark .text-slate-700 { color: rgb(226 232 240) !important; }
+html.dark .text-slate-600 { color: rgb(203 213 225) !important; }
+html.dark .text-slate-500 { color: rgb(148 163 184) !important; }
+html.dark .border-slate-200 { border-color: rgb(30 41 59) !important; }
+html.dark .border-slate-100 { border-color: rgb(30 41 59) !important; }
+html.dark .hover\:bg-slate-100:hover { background-color: rgb(30 41 59) !important; }
+html.dark .hover\:bg-emerald-50:hover { background-color: rgb(6 78 59 / 0.3) !important; }
+html.dark .bg-emerald-50 { background-color: rgb(6 78 59 / 0.25) !important; }
+html.dark .bg-emerald-100 { background-color: rgb(6 78 59 / 0.4) !important; }
+html.dark .topic-card { background-color: rgb(15 23 42) !important; border-color: rgb(30 41 59) !important; }
+html.dark .error-box { background-color: rgb(69 10 10 / 0.3) !important; }
+html.dark .tip-box { background-color: rgb(69 26 3 / 0.3) !important; }
+html.dark .info-box { background-color: rgb(3 30 69 / 0.3) !important; }
+html.dark .quiz-option { border-color: rgb(30 41 59) !important; color: rgb(226 232 240) !important; }
+html.dark .quiz-option:hover { background-color: rgb(6 78 59 / 0.2) !important; border-color: rgb(16 185 129) !important; }
+html.dark ::-webkit-scrollbar-thumb { background-color: rgb(51 65 85) !important; }
+
+/* ── text-gray overrides ── */
+html.dark .text-gray-900 { color: rgb(248 250 252) !important; }
+html.dark .text-gray-800 { color: rgb(241 245 249) !important; }
+html.dark .text-gray-700 { color: rgb(226 232 240) !important; }
+html.dark .text-gray-600 { color: rgb(203 213 225) !important; }
+html.dark .text-gray-500 { color: rgb(148 163 184) !important; }
+html.dark .text-gray-400 { color: rgb(148 163 184) !important; }
+
+/* ── bg-gray overrides ── */
+html.dark .bg-gray-100 { background-color: rgb(15 23 42) !important; }
+html.dark .bg-gray-50  { background-color: rgb(2 6 23) !important; }
+
+/* ── bg coloridas (boxes de feedback) ── */
+html.dark .bg-red-50    { background-color: rgb(69 10 10 / 0.45) !important; }
+html.dark .bg-amber-50  { background-color: rgb(78 46 3 / 0.45) !important; }
+html.dark .bg-sky-50    { background-color: rgb(3 30 69 / 0.45) !important; }
+html.dark .bg-green-50  { background-color: rgb(5 46 22 / 0.45) !important; }
+html.dark .bg-emerald-50 { background-color: rgb(6 78 59 / 0.35) !important; }
+html.dark .bg-purple-50  { background-color: rgb(46 16 101 / 0.45) !important; }
+html.dark .bg-pink-50    { background-color: rgb(80 7 36 / 0.45) !important; }
+
+/* ── texto colorido dentro dos boxes ── */
+html.dark .text-red-800   { color: rgb(252 165 165) !important; }
+html.dark .text-red-700   { color: rgb(252 165 165) !important; }
+html.dark .text-amber-800 { color: rgb(253 211 77) !important; }
+html.dark .text-amber-700 { color: rgb(253 211 77) !important; }
+html.dark .text-sky-800   { color: rgb(125 211 252) !important; }
+html.dark .text-sky-700   { color: rgb(125 211 252) !important; }
+html.dark .text-emerald-800 { color: rgb(110 231 183) !important; }
+html.dark .text-green-800   { color: rgb(134 239 172) !important; }
+
+/* ── bordas coloridas ── */
+html.dark .border-red-200   { border-color: rgb(239 68 68 / 0.5) !important; }
+html.dark .border-amber-200 { border-color: rgb(245 158 11 / 0.5) !important; }
+html.dark .border-sky-200   { border-color: rgb(14 165 233 / 0.5) !important; }
+html.dark .border-green-200 { border-color: rgb(34 197 94 / 0.5) !important; }
+
+/* ── tabelas ── */
+html.dark tr.bg-slate-50,
+html.dark .bg-slate-50 { background-color: rgb(15 23 42) !important; }
+html.dark tr:hover { background-color: rgb(30 41 59) !important; }
